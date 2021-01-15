@@ -1,0 +1,14 @@
+{
+  "name": "fpay-ui",
+  "version": "1.0.4",
+  "description": "React components for faster and easier web development. Build your own design system.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Fernando Ezequiel Ferrioli",
+  "contributors": [
+    "Fernando Ezequiel Ferrioli",
+    "Fernando De Caro"
+  ],
+  "license": "ISC"
+}

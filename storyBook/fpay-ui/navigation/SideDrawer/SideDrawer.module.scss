@@ -1,0 +1,83 @@
+
+
+.SideDrawer {
+  width: 254px;
+  height: 100vh;
+  z-index: 200;
+  position: absolute;
+  background-image: linear-gradient(to bottom, #4291da, #0f6cce);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 10px 0 0;
+  top: 0;
+  &___expanded {
+    left: 0;
+  }
+  &___collapsed {
+    left: -254px;
+  }
+  &_header {
+    display: flex;
+    flex-direction: row;
+    padding: 16px 24px;
+    &_logo {
+      width: 63px;
+      padding-left: 24px;
+    }
+    &_drawerToggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+    }
+  }
+}
+
+@include large {
+  .Backdrop {
+    display: none;
+  }
+  .SideDrawer {
+    $self: &;
+    transition: width 0.2s;
+    position: fixed;
+    &___collapsed {
+      width: 72px;
+      left: 0;
+      #{$self}_header {
+        padding-bottom: 27px;
+        &_logo {
+          width: 46px;
+        }
+        &_drawerToggle {
+          margin-bottom: 17px;
+        }
+      }
+    }
+    &___expanded {
+      width: 216px;
+      left: 0;
+      #{$self}_header {
+        &_logo {
+          padding-left: 8px;
+        }
+        &_drawerToggle {
+          margin-bottom: 7px;
+        }
+      }
+    }
+    &_header {
+      padding: 16px 16px 24px;
+      flex-direction: column;
+      &_drawerToggle {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      &_logo {
+        width: 72px;
+        padding: 0;
+      }
+    }
+  }
+}

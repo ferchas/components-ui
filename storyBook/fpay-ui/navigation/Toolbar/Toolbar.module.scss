@@ -1,0 +1,28 @@
+
+
+.Toolbar {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: row;
+  &_drawerToggle {
+    padding-right: 24px;
+  }
+  &_title {
+    @include Subtitle-1-w400;
+  }
+}
+
+@include large {
+  .Toolbar {
+    height: 96px;
+    padding: 31px 24px 32px;
+    &_drawerToggle {
+      display: none;
+    }
+    &_title {
+      @include H5-w400;
+    }
+  }
+}

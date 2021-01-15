@@ -1,0 +1,129 @@
+
+
+.NavigationItem {
+  $self: &;
+  padding: 24px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: width 0.2s linear;
+  &_menu {
+    display: flex;
+    flex-direction: row;
+    &_text {
+      @include Caption-w500;
+      color: $bbrand200;
+      margin-left: 13px;
+      flex-basis: auto;
+      line-height: 24px;
+      height: 24px;
+      opacity: 1;
+      width: auto;
+      transition: opacity 0s ease-out 0.1s;
+    }
+    &_image {
+      width: 24px;
+      color: $bbrand200;
+    }
+    &_arrow {
+      width: 16px;
+    }
+  }
+  &_submenu {
+    transition: heigth 0.2s;
+    height: 0px;
+    padding: 32px 0 22px 32px;
+    color: $bbrand200;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    box-sizing: border-box;
+    &_item {
+      @include Caption-w400;
+      padding: 10px 0;
+      color: $bbrand200;
+      text-decoration: none;
+      &:hover {
+        color: $gray200;
+      }
+    }
+  }
+  &:hover {
+    background-color: $bbrand600;
+  }
+  &___open {
+    background-color: $bbrand600;
+    overflow: hidden;
+    #{$self}_menu {
+      .NavigationItem_menu_arrow {
+        transform: scaleY(-1);
+      }
+    }
+    #{$self}_submenu {
+      width: 168px;
+      height: 100%;
+    }
+  }
+  &___active {
+    &::before {
+      content: "";
+      height: 100%;
+      width: 7px;
+      border-radius: 0 5px 5px 0;
+      left: 0;
+      top: 0;
+      background-color: white;
+      position: absolute;
+    }
+    #{$self}_menu {
+      &_text {
+        color: $gray200;
+      }
+      &_image {
+        color: $gray200;
+      }
+    }
+  }
+  &___collapsed {
+    width: 100%;
+    transition: none;
+    #{$self}_menu {
+      &_text {
+        opacity: 0;
+        width: 0;
+        transition: none;
+        transition-delay: 0;
+      }
+    }
+  }
+}
+
+.Link {
+  text-decoration: none;
+  width: 100%;
+}
+
+@include large {
+  .NavigationItem {
+    $self: &;
+    &_submenu {
+      transition: opacity 0.2s ease-out 0.2s;
+    }
+    &___collapsed {
+      #{$self}_submenu {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        padding: 0;
+        transition: none;
+        transition-delay: 0;
+      }
+    }
+  }
+}
